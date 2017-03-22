@@ -17,11 +17,11 @@
   "keywords": [
     "react",
     "react-component",
-    "edit",
-    "inline",
-    "inplace",
-    "multiline",
-    "contenteditable"
+    "combobox",
+    "primary",
+    "alternate",
+    "multivalues",
+    "animated"
   ],
   "devDependencies": {
     "babel-cli": "6.9.0",
