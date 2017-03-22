@@ -21316,7 +21316,7 @@
 	      collapsed: true,
 	      enableAnimation: true,
 	      animationDuration: 300,
-	      makePrimaryButtonText: 'Select',
+	      makePrimaryButtonText: 'Make primary',
 	      onPrimaryUpdated: function onPrimaryUpdated() {}
 	    };
 	  },

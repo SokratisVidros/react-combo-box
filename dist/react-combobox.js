@@ -40,7 +40,7 @@ var ComboBox = _react2.default.createClass({
       collapsed: true,
       enableAnimation: true,
       animationDuration: 300,
-      makePrimaryButtonText: 'Select',
+      makePrimaryButtonText: 'Make primary',
       onPrimaryUpdated: function onPrimaryUpdated() {}
     };
   },
