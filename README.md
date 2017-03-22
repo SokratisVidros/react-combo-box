@@ -1,11 +1,11 @@
-# react-combobox
+# react-combo-box
 
 A React combobox component to handle primary and alternate field values.
 
 ## Installation
 
 ```
-$ npm i react-combobox
+$ npm i react-combo-box
 ```
 
 ## Basic Usage
@@ -19,7 +19,7 @@ $ npm i react-combobox
 />
 ```
 
-## Supported Properties 
+## Supported Properties
 
 **name** *Required*
 
@@ -29,7 +29,7 @@ Name of the field.
 
 Primary value to be displayed and edited.
 
-**alternates** 
+**alternates**
 
 Alternate values to be displayed.
 

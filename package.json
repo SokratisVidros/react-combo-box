@@ -1,23 +1,27 @@
 {
-  "name": "react-combobox",
+  "name": "react-combo-box",
   "version": "1.0.0",
-  "description": "A React combobox component to handle primary and alternate field values.",
-  "main": "dist/react-combobox.js",
+  "description": "A React combo box component to handle primary and alternate field values.",
+  "main": "dist/react-combo-box.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rm -f dist/react-combobox.js",
-    "build": "babel src/react-combobox.jsx --out-file dist/react-combobox.js",
+    "prebuild": "rm -f dist/react-combo-box.js",
+    "build": "babel src/react-combo-box.jsx --out-file dist/react-combo-box.js",
     "postbuild": "rm -f example/index.js; webpack example/index.jsx example/index.js",
     "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SokratisVidros/react-combobox.git"
+    "url": "https://github.com/SokratisVidros/react-combo-box.git"
   },
   "keywords": [
     "react",
     "react-component",
     "combobox",
+    "combo-box",
+    "input",
+    "listbox",
+    "list-box",
     "primary",
     "alternate",
     "multivalues",
@@ -40,9 +44,9 @@
   "author": "Sokratis Vidros",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SokratisVidros/react-combobox/issues"
+    "url": "https://github.com/SokratisVidros/react-combo-box/issues"
   },
-  "homepage": "https://github.com/SokratisVidros/react-combobox",
+  "homepage": "https://github.com/SokratisVidros/react-combo-box",
   "dependencies": {
     "react-flip-move": "^2.9.1",
     "underscore": "^1.8.3"

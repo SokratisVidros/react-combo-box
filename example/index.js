@@ -54,9 +54,9 @@
 
 	var _reactDom = __webpack_require__(33);
 
-	var _reactCombobox = __webpack_require__(172);
+	var _reactComboBox = __webpack_require__(172);
 
-	var _reactCombobox2 = _interopRequireDefault(_reactCombobox);
+	var _reactComboBox2 = _interopRequireDefault(_reactComboBox);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -93,7 +93,7 @@
 	          _react2.default.createElement(
 	            'h1',
 	            null,
-	            'React-combobox examples'
+	            'React-combo-box examples'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -104,21 +104,7 @@
 	            null,
 	            'Basic Usage'
 	          ),
-	          _react2.default.createElement(_reactCombobox2.default, {
-	            name: 'email',
-	            primary: 'john@example.com',
-	            alternates: ['john.doe@example.com', 'john_doe@example.com']
-	          })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'example' },
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Callbacks'
-	          ),
-	          _react2.default.createElement(_reactCombobox2.default, {
+	          _react2.default.createElement(_reactComboBox2.default, {
 	            name: 'email',
 	            primary: 'john@example.com',
 	            alternates: ['john.doe@example.com', 'john_doe@example.com'],
