@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReactCombobox/> expands and collapses alternate values on toggle click 1`] = `
+<div
+  className={undefined}
+>
+  <input
+    className=""
+    name="email"
+    onChange={[Function]}
+    value="john@example.com"
+  />
+  <span
+    onClick={[Function]}
+  >
+    <span
+      className=""
+      data-ui="show-more"
+    >
+      Show 2 more
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ReactCombobox/> expands and collapses alternate values on toggle click 2`] = `
+<div
+  className={undefined}
+>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      className=""
+      name="email"
+      onChange={[Function]}
+      value="john@example.com"
+    />
+    <div
+      className=""
+      data-ui="alternates"
+    >
+      <span
+        className=""
+      >
+        john.doe@example.com
+      </span>
+      <span
+        className=""
+        data-ui="alternate-value"
+        data-value="john.doe@example.com"
+        onClick={[Function]}
+      >
+        Make primary
+      </span>
+    </div>
+    <div
+      className=""
+      data-ui="alternates"
+    >
+      <span
+        className=""
+      >
+        john_doe@example.com
+      </span>
+      <span
+        className=""
+        data-ui="alternate-value"
+        data-value="john_doe@example.com"
+        onClick={[Function]}
+      >
+        Make primary
+      </span>
+    </div>
+  </div>
+  <span
+    onClick={[Function]}
+  >
+    <span
+      className=""
+      data-ui="show-less"
+    >
+      Show less
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ReactCombobox/> expands and collapses alternate values on toggle click 3`] = `
+<div
+  className={undefined}
+>
+  <input
+    className=""
+    name="email"
+    onChange={[Function]}
+    value="john@example.com"
+  />
+  <span
+    onClick={[Function]}
+  >
+    <span
+      className=""
+      data-ui="show-more"
+    >
+      Show 2 more
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ReactCombobox/> renders correctly the combobox UI with primary and alternate values 1`] = `
+<div
+  className={undefined}
+>
+  <input
+    className=""
+    name="email"
+    onChange={[Function]}
+    value="john@example.com"
+  />
+  <span
+    onClick={[Function]}
+  >
+    <span
+      className=""
+      data-ui="show-more"
+    >
+      Show 2 more
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ReactCombobox/> renders correctly the combobox UI without alternate values 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      className=""
+      name="email"
+      onChange={[Function]}
+      value="john@example.com"
+    />
+  </div>
+</div>
+`;

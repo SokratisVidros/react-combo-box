@@ -24,7 +24,15 @@ const ComboBox = React.createClass({
       collapsed: true,
       enableAnimation: true,
       animationDuration: 300,
+      primaryInputClass: '',
+      primaryInputHtmlOptions: {},
+        toggleButtonClass: '',
+      alternateItemWrapperClass: '',
+      alternateValueClass: '',
+      makePrimaryButtonClass: '',
       makePrimaryButtonText: 'Make primary',
+      showMoreButtonText: '',
+      showLessButtonText: '',
       onPrimaryUpdated: () => {}
     };
   },
@@ -90,7 +98,7 @@ const ComboBox = React.createClass({
   },
 
   onToggleClick(e) {
-    e.preventDefault();
+    e && e.preventDefault();
     this.toggle();
   },
 
@@ -108,7 +116,7 @@ const ComboBox = React.createClass({
     const {toggleButtonClass, showLessButtonText} = this.props;
     const txt = showLessButtonText || 'Show less';
     return (
-      <span className={toggleButtonClass}>
+      <span data-ui='show-less' className={toggleButtonClass}>
         {txt}
       </span>
     );
@@ -151,11 +159,11 @@ const ComboBox = React.createClass({
     } = this.props;
 
     return (
-      <div className={alternateItemWrapperClass}>
+      <div className={alternateItemWrapperClass} data-ui='alternates'>
         <span className={alternateValueClass}>
           {value}
         </span>
-        <span className={makePrimaryButtonClass} onClick={this.onMakePrimaryClick} data-value={value}>
+        <span className={makePrimaryButtonClass} onClick={this.onMakePrimaryClick} data-ui='alternate-value' data-value={value}>
           {makePrimaryButtonText}
         </span>
       </div>
@@ -211,7 +219,7 @@ const ComboBox = React.createClass({
 ComboBox.propTypes = {
   name:                      React.PropTypes.string.isRequired,
   primary:                   React.PropTypes.string.isRequired,
-  onPrimaryUpdated:          React.PropTypes.function,
+  onPrimaryUpdated:          React.PropTypes.func,
   alternates:                React.PropTypes.array,
   collapsed:                 React.PropTypes.bool,
   enableAnimation:           React.PropTypes.bool,

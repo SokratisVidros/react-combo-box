@@ -40,7 +40,15 @@ var ComboBox = _react2.default.createClass({
       collapsed: true,
       enableAnimation: true,
       animationDuration: 300,
+      primaryInputClass: '',
+      primaryInputHtmlOptions: {},
+      toggleButtonClass: '',
+      alternateItemWrapperClass: '',
+      alternateValueClass: '',
+      makePrimaryButtonClass: '',
       makePrimaryButtonText: 'Make primary',
+      showMoreButtonText: '',
+      showLessButtonText: '',
       onPrimaryUpdated: function onPrimaryUpdated() {}
     };
   },
@@ -106,7 +114,7 @@ var ComboBox = _react2.default.createClass({
     this.updatePrimary(e.target.getAttribute('data-value'));
   },
   onToggleClick: function onToggleClick(e) {
-    e.preventDefault();
+    e && e.preventDefault();
     this.toggle();
   },
   renderShowMore: function renderShowMore(nMore) {
@@ -129,7 +137,7 @@ var ComboBox = _react2.default.createClass({
     var txt = showLessButtonText || 'Show less';
     return _react2.default.createElement(
       'span',
-      { className: toggleButtonClass },
+      { 'data-ui': 'show-less', className: toggleButtonClass },
       txt
     );
   },
@@ -166,7 +174,7 @@ var ComboBox = _react2.default.createClass({
 
     return _react2.default.createElement(
       'div',
-      { className: alternateItemWrapperClass },
+      { className: alternateItemWrapperClass, 'data-ui': 'alternates' },
       _react2.default.createElement(
         'span',
         { className: alternateValueClass },
@@ -174,7 +182,7 @@ var ComboBox = _react2.default.createClass({
       ),
       _react2.default.createElement(
         'span',
-        { className: makePrimaryButtonClass, onClick: this.onMakePrimaryClick, 'data-value': value },
+        { className: makePrimaryButtonClass, onClick: this.onMakePrimaryClick, 'data-ui': 'alternate-value', 'data-value': value },
         makePrimaryButtonText
       )
     );
@@ -233,7 +241,7 @@ var ComboBox = _react2.default.createClass({
 ComboBox.propTypes = {
   name: _react2.default.PropTypes.string.isRequired,
   primary: _react2.default.PropTypes.string.isRequired,
-  onPrimaryUpdated: _react2.default.PropTypes.function,
+  onPrimaryUpdated: _react2.default.PropTypes.func,
   alternates: _react2.default.PropTypes.array,
   collapsed: _react2.default.PropTypes.bool,
   enableAnimation: _react2.default.PropTypes.bool,
