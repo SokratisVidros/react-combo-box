@@ -88,9 +88,7 @@ const ComboBox = React.createClass({
   },
 
   onInputChange(e) {
-    // Avoid input focus loss on typing due to new keys value
-    // http://reactkungfu.com/2015/09/react-js-loses-input-focus-on-typing/
-    this.setState({primary: e.target.value}, () => this.inputEl.focus());
+    this.setState({primary: e.target.value});
   },
 
   onInputBlur(e) {
@@ -184,7 +182,7 @@ const ComboBox = React.createClass({
 
     return values.map((v, index) => {
       return (
-        <ComboBoxItem key={v}>
+        <ComboBoxItem key={`combobox-item-${index}`}>
           {index === 0 ? this.renderPrimary() : this.renderAlternate(name, v, index)}
         </ComboBoxItem>
       );
