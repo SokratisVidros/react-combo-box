@@ -89,7 +89,7 @@ var ComboBox = _react2.default.createClass({
     return this.isToggleVisible();
   },
   isToggleVisible: function isToggleVisible() {
-    return !(0, _underscore.isEmpty)(this.props.alternates);
+    return !(0, _underscore.isEmpty)(this.state.alternates);
   },
   updatePrimary: function updatePrimary(primary) {
     var onPrimaryUpdated = this.props.onPrimaryUpdated;

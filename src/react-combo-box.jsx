@@ -72,7 +72,7 @@ const ComboBox = React.createClass({
   },
 
   isToggleVisible() {
-    return !isEmpty(this.props.alternates);
+    return !isEmpty(this.state.alternates);
   },
 
   updatePrimary(primary) {
