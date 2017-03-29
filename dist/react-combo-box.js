@@ -106,7 +106,13 @@ var ComboBox = _react2.default.createClass({
     }
   },
   onInputChange: function onInputChange(e) {
-    e.preventDefault();
+    var _this = this;
+
+    this.setState({ primary: e.target.value }, function () {
+      return _this.inputEl.focus();
+    });
+  },
+  onInputBlur: function onInputBlur(e) {
     this.updatePrimary(e.target.value);
   },
   onMakePrimaryClick: function onMakePrimaryClick(e) {
@@ -151,6 +157,8 @@ var ComboBox = _react2.default.createClass({
     }
   },
   renderPrimary: function renderPrimary() {
+    var _this2 = this;
+
     var _props4 = this.props,
         name = _props4.name,
         primaryInputClass = _props4.primaryInputClass,
@@ -158,10 +166,14 @@ var ComboBox = _react2.default.createClass({
 
 
     return _react2.default.createElement('input', _extends({
+      ref: function ref(el) {
+        return _this2.inputEl = el;
+      },
       name: name,
       value: this.state.primary,
       className: primaryInputClass,
-      onChange: this.onInputChange
+      onChange: this.onInputChange,
+      onBlur: this.onInputBlur
     }, primaryInputHtmlOptions));
   },
   renderAlternate: function renderAlternate(name, value, index) {
@@ -188,7 +200,7 @@ var ComboBox = _react2.default.createClass({
     );
   },
   renderList: function renderList() {
-    var _this = this;
+    var _this3 = this;
 
     var name = this.props.name;
     var _state2 = this.state,
@@ -201,7 +213,7 @@ var ComboBox = _react2.default.createClass({
       return _react2.default.createElement(
         ComboBoxItem,
         { key: v },
-        index === 0 ? _this.renderPrimary() : _this.renderAlternate(name, v, index)
+        index === 0 ? _this3.renderPrimary() : _this3.renderAlternate(name, v, index)
       );
     });
   },

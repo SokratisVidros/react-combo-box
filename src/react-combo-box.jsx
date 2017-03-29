@@ -88,7 +88,12 @@ const ComboBox = React.createClass({
   },
 
   onInputChange(e) {
-    e.preventDefault();
+    // Avoid input focus loss on typing due to new keys value
+    // http://reactkungfu.com/2015/09/react-js-loses-input-focus-on-typing/
+    this.setState({primary: e.target.value}, () => this.inputEl.focus());
+  },
+
+  onInputBlur(e) {
     this.updatePrimary(e.target.value);
   },
 
@@ -141,10 +146,12 @@ const ComboBox = React.createClass({
 
     return (
       <input
+        ref={el => this.inputEl = el}
         name={name}
         value={this.state.primary}
         className={primaryInputClass}
         onChange={this.onInputChange}
+        onBlur={this.onInputBlur}
         {...primaryInputHtmlOptions}
       />
     );
