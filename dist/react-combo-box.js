@@ -177,12 +177,12 @@ var ComboBox = _react2.default.createClass({
       { className: alternateItemWrapperClass, 'data-ui': 'alternates' },
       _react2.default.createElement(
         'span',
-        { className: alternateValueClass },
+        { className: alternateValueClass, 'data-ui': 'alternate-value' },
         value
       ),
       _react2.default.createElement(
         'span',
-        { className: makePrimaryButtonClass, onClick: this.onMakePrimaryClick, 'data-ui': 'alternate-value', 'data-value': value },
+        { className: makePrimaryButtonClass, 'data-ui': 'make-primary-btn', onClick: this.onMakePrimaryClick, 'data-value': value },
         makePrimaryButtonText
       )
     );

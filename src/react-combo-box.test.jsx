@@ -51,7 +51,7 @@ test('<ReactCombobox/> updates primary value on "Make primary" click', () => {
     />
   );
 
-  component.find('[data-ui="alternate-value"]').first().simulate('click', {
+  component.find('[data-ui="make-primary-btn"]').first().simulate('click', {
     preventDefault() {},
     target: {
       getAttribute() {

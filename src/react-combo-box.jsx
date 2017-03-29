@@ -160,10 +160,10 @@ const ComboBox = React.createClass({
 
     return (
       <div className={alternateItemWrapperClass} data-ui='alternates'>
-        <span className={alternateValueClass}>
+        <span className={alternateValueClass} data-ui='alternate-value'>
           {value}
         </span>
-        <span className={makePrimaryButtonClass} onClick={this.onMakePrimaryClick} data-ui='alternate-value' data-value={value}>
+        <span className={makePrimaryButtonClass} data-ui='make-primary-btn' onClick={this.onMakePrimaryClick} data-value={value}>
           {makePrimaryButtonText}
         </span>
       </div>

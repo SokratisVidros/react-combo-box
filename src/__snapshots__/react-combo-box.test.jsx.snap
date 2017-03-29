@@ -46,12 +46,13 @@ exports[`<ReactCombobox/> expands and collapses alternate values on toggle click
     >
       <span
         className=""
+        data-ui="alternate-value"
       >
         john.doe@example.com
       </span>
       <span
         className=""
-        data-ui="alternate-value"
+        data-ui="make-primary-btn"
         data-value="john.doe@example.com"
         onClick={[Function]}
       >
@@ -64,12 +65,13 @@ exports[`<ReactCombobox/> expands and collapses alternate values on toggle click
     >
       <span
         className=""
+        data-ui="alternate-value"
       >
         john_doe@example.com
       </span>
       <span
         className=""
-        data-ui="alternate-value"
+        data-ui="make-primary-btn"
         data-value="john_doe@example.com"
         onClick={[Function]}
       >
