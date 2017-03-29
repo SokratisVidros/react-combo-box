@@ -47,7 +47,7 @@ test('<ReactCombobox/> updates primary value on "Make primary" click', () => {
       primary='john@example.com'
       alternates={['john.doe@example.com', 'john_doe@example.com']}
       collapsed={false}
-      onPrimaryUpdated={cb}
+      onUpdate={cb}
     />
   );
 
@@ -63,19 +63,20 @@ test('<ReactCombobox/> updates primary value on "Make primary" click', () => {
   expect(cb.mock.calls[0][0]).toBe('john.doe@example.com');
 });
 
-test('<ReactCombobox/> updates primary value on input change', () => {
+test('<ReactCombobox/> updates primary value on blur', () => {
   const cb = jest.fn();
   const component = shallow(
     <ReactCombobox
       name='email'
       primary='john@example.com'
       alternates={['john.doe@example.com', 'john_doe@example.com']}
-      onPrimaryUpdated={cb}
+      onUpdate={cb}
     />
   );
 
-  component.find('input').first().simulate('change', {
-    preventDefault() {},
+  const primaryInput = component.find('input').first();
+
+  primaryInput.simulate('blur', {
     target: {
       value: 'carla.coe@example.com'
     }

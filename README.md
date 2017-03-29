@@ -15,7 +15,7 @@ $ npm i react-combo-box
   name='email'
   primary='john@example.com'
   alternates={['john.doe@example.com', 'john_doe@example.com']}
-  onPrimaryUpdated={this.onPrimaryUpdated}
+  onUpdate={this.onUpdate}
 />
 ```
 
@@ -33,7 +33,7 @@ Primary value to be displayed and edited.
 
 Alternate values to be displayed.
 
-**onPrimaryUpdated**
+**onUpdate(primary, alternates)**
 
 Callback when the primary value is altered.
 

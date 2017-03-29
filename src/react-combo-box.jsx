@@ -33,7 +33,7 @@ const ComboBox = React.createClass({
       makePrimaryButtonText: 'Make primary',
       showMoreButtonText: '',
       showLessButtonText: '',
-      onPrimaryUpdated: () => {}
+      onUpdate: () => {}
     };
   },
 
@@ -76,14 +76,14 @@ const ComboBox = React.createClass({
   },
 
   updatePrimary(primary) {
-    const {onPrimaryUpdated} = this.props;
+    const {onUpdate} = this.props;
     const {primary: prevPrimary, alternates: prevAlternates} = this.state;
     const alternates = chain([primary, prevPrimary].concat(prevAlternates)).compact().uniq().value().slice(1);
 
     this.setState({primary, alternates});
 
-    if (onPrimaryUpdated) {
-      onPrimaryUpdated(primary);
+    if (onUpdate) {
+      onUpdate(primary, alternates);
     }
   },
 
@@ -224,7 +224,7 @@ const ComboBox = React.createClass({
 ComboBox.propTypes = {
   name:                      React.PropTypes.string.isRequired,
   primary:                   React.PropTypes.string.isRequired,
-  onPrimaryUpdated:          React.PropTypes.func,
+  onUpdate:                  React.PropTypes.func,
   alternates:                React.PropTypes.array,
   collapsed:                 React.PropTypes.bool,
   enableAnimation:           React.PropTypes.bool,

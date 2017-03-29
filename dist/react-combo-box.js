@@ -49,7 +49,7 @@ var ComboBox = _react2.default.createClass({
       makePrimaryButtonText: 'Make primary',
       showMoreButtonText: '',
       showLessButtonText: '',
-      onPrimaryUpdated: function onPrimaryUpdated() {}
+      onUpdate: function onUpdate() {}
     };
   },
   getInitialState: function getInitialState() {
@@ -92,7 +92,7 @@ var ComboBox = _react2.default.createClass({
     return !(0, _underscore.isEmpty)(this.state.alternates);
   },
   updatePrimary: function updatePrimary(primary) {
-    var onPrimaryUpdated = this.props.onPrimaryUpdated;
+    var onUpdate = this.props.onUpdate;
     var _state = this.state,
         prevPrimary = _state.primary,
         prevAlternates = _state.alternates;
@@ -101,8 +101,8 @@ var ComboBox = _react2.default.createClass({
 
     this.setState({ primary: primary, alternates: alternates });
 
-    if (onPrimaryUpdated) {
-      onPrimaryUpdated(primary);
+    if (onUpdate) {
+      onUpdate(primary, alternates);
     }
   },
   onInputChange: function onInputChange(e) {
@@ -249,7 +249,7 @@ var ComboBox = _react2.default.createClass({
 ComboBox.propTypes = {
   name: _react2.default.PropTypes.string.isRequired,
   primary: _react2.default.PropTypes.string.isRequired,
-  onPrimaryUpdated: _react2.default.PropTypes.func,
+  onUpdate: _react2.default.PropTypes.func,
   alternates: _react2.default.PropTypes.array,
   collapsed: _react2.default.PropTypes.bool,
   enableAnimation: _react2.default.PropTypes.bool,

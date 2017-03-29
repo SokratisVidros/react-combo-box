@@ -7,6 +7,7 @@ exports[`<ReactCombobox/> expands and collapses alternate values on toggle click
   <input
     className=""
     name="email"
+    onBlur={[Function]}
     onChange={[Function]}
     value="john@example.com"
   />
@@ -37,6 +38,7 @@ exports[`<ReactCombobox/> expands and collapses alternate values on toggle click
     <input
       className=""
       name="email"
+      onBlur={[Function]}
       onChange={[Function]}
       value="john@example.com"
     />
@@ -99,6 +101,7 @@ exports[`<ReactCombobox/> expands and collapses alternate values on toggle click
   <input
     className=""
     name="email"
+    onBlur={[Function]}
     onChange={[Function]}
     value="john@example.com"
   />
@@ -122,6 +125,7 @@ exports[`<ReactCombobox/> renders correctly the combobox UI with primary and alt
   <input
     className=""
     name="email"
+    onBlur={[Function]}
     onChange={[Function]}
     value="john@example.com"
   />
@@ -152,6 +156,7 @@ exports[`<ReactCombobox/> renders correctly the combobox UI without alternate va
     <input
       className=""
       name="email"
+      onBlur={[Function]}
       onChange={[Function]}
       value="john@example.com"
     />
