@@ -2,6 +2,8 @@
 
 A React combobox component to handle primary and alternate field values.
 
+![](http://recordit.co/pfPT0QWd6Y)
+
 ## Installation
 
 ```
