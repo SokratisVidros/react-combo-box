@@ -4,9 +4,8 @@ import ReactCombobox from '../dist/react-combo-box';
 
 class Showcase extends React.Component {
 
-  onPrimaryUpdated(primaryValue) {
-    const output = document.querySelector('span.output');
-    output.innerHTML = `New primary value: ${primaryValue}`;
+  onUpdate(primary, alternates) {
+    console.log(`New primary value: ${primary}`);
   }
 
   render() {
@@ -16,14 +15,17 @@ class Showcase extends React.Component {
           <h1>React-combo-box examples</h1>
         </header>
         <div className='example'>
-          <h3>Basic Usage</h3>
+          <h3>Emails</h3>
           <ReactCombobox
             name='email'
             primary='john@example.com'
             alternates={['john.doe@example.com', 'john_doe@example.com']}
-            onPrimaryUpdated={this.onPrimaryUpdated}
+            onUpdate={this.onUpdate}
+            primaryInputClass='primary-input'
+            alternateValueClass='alternate-value'
+            toggleButtonClass='toggle-btn'
+            makePrimaryButtonClass='make-primary-btn'
           />
-          <span className='output'></span>
         </div>
       </section>
     );

@@ -10,22 +10,6 @@ h1 {
   padding-left: 10px;
 }
 
-input {
-  font-size: 0.8em;
-  border: 0;
-  outline: 0;
-  background: transparent;
-}
-
-input:hover {
-  cursor: pointer;
-  border-bottom: 1px solid #999;
-}
-
-input:focus {
-  border-bottom: 1px solid #999;
-}
-
 span {
   font-size: 0.8em;
 }
@@ -35,26 +19,36 @@ span {
   border-bottom: 1px solid #999;
 }
 
-.bio {
+.primary-input {
+  width: 180px;
+  font-size: 0.9rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.primary-input:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #999;
+}
+
+.primary-input:focus {
+  border-bottom: 1px solid #999;
+}
+
+.make-primary-btn {
   display: inline-block;
-  width: 300px;
-  font-size: 0.8em;
+  margin: 0 10px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-[contenteditable=true]:empty:before{
+.toggle-btn {
+  cursor: pointer;
+}
+
+.alternate-value {
+  width: 180px;
   display: inline-block;
-  content: attr(placeholder);
-  color: #AEA9A9
-}
-
-input:focus + button, [contenteditable=true]:focus + button {
-  visibility: hidden;
-}
-
-.error {
-  color: #F13535;
-}
-
-.output {
-  color: #296AEA;
 }

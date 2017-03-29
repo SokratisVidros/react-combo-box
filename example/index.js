@@ -6863,7 +6863,7 @@ module.exports = focusNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(global) {
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -6889,7 +6889,7 @@ module.exports = focusNode;
  * @return {?DOMElement}
  */
 function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || document;
+  doc = doc || global.document;
   if (typeof doc === 'undefined') {
     return null;
   }
@@ -6901,6 +6901,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)))
 
 /***/ }),
 /* 57 */
@@ -9568,7 +9569,7 @@ var ComboBox = _react2.default.createClass({
       makePrimaryButtonText: 'Make primary',
       showMoreButtonText: '',
       showLessButtonText: '',
-      onPrimaryUpdated: function onPrimaryUpdated() {}
+      onUpdate: function onUpdate() {}
     };
   },
   getInitialState: function getInitialState() {
@@ -9608,10 +9609,10 @@ var ComboBox = _react2.default.createClass({
     return this.isToggleVisible();
   },
   isToggleVisible: function isToggleVisible() {
-    return !(0, _underscore.isEmpty)(this.props.alternates);
+    return !(0, _underscore.isEmpty)(this.state.alternates);
   },
   updatePrimary: function updatePrimary(primary) {
-    var onPrimaryUpdated = this.props.onPrimaryUpdated;
+    var onUpdate = this.props.onUpdate;
     var _state = this.state,
         prevPrimary = _state.primary,
         prevAlternates = _state.alternates;
@@ -9620,12 +9621,20 @@ var ComboBox = _react2.default.createClass({
 
     this.setState({ primary: primary, alternates: alternates });
 
-    if (onPrimaryUpdated) {
-      onPrimaryUpdated(primary);
+    if (onUpdate) {
+      onUpdate(primary, alternates);
     }
   },
   onInputChange: function onInputChange(e) {
-    e.preventDefault();
+    var _this = this;
+
+    // Avoid input focus loss on typing due to new keys value
+    // http://reactkungfu.com/2015/09/react-js-loses-input-focus-on-typing/
+    this.setState({ primary: e.target.value }, function () {
+      return _this.inputEl.focus();
+    });
+  },
+  onInputBlur: function onInputBlur(e) {
     this.updatePrimary(e.target.value);
   },
   onMakePrimaryClick: function onMakePrimaryClick(e) {
@@ -9658,16 +9667,22 @@ var ComboBox = _react2.default.createClass({
     }
   },
   renderPrimary: function renderPrimary() {
+    var _this2 = this;
+
     var _props4 = this.props,
         name = _props4.name,
         primaryInputClass = _props4.primaryInputClass,
         primaryInputHtmlOptions = _props4.primaryInputHtmlOptions;
 
     return _react2.default.createElement('input', _extends({
+      ref: function ref(el) {
+        return _this2.inputEl = el;
+      },
       name: name,
       value: this.state.primary,
       className: primaryInputClass,
-      onChange: this.onInputChange
+      onChange: this.onInputChange,
+      onBlur: this.onInputBlur
     }, primaryInputHtmlOptions));
   },
   renderAlternate: function renderAlternate(name, value, index) {
@@ -9677,10 +9692,10 @@ var ComboBox = _react2.default.createClass({
         makePrimaryButtonClass = _props5.makePrimaryButtonClass,
         makePrimaryButtonText = _props5.makePrimaryButtonText;
 
-    return _react2.default.createElement('div', { className: alternateItemWrapperClass, 'data-ui': 'alternates' }, _react2.default.createElement('span', { className: alternateValueClass }, value), _react2.default.createElement('span', { className: makePrimaryButtonClass, onClick: this.onMakePrimaryClick, 'data-ui': 'alternate-value', 'data-value': value }, makePrimaryButtonText));
+    return _react2.default.createElement('div', { className: alternateItemWrapperClass, 'data-ui': 'alternates' }, _react2.default.createElement('span', { className: alternateValueClass, 'data-ui': 'alternate-value' }, value), _react2.default.createElement('span', { className: makePrimaryButtonClass, 'data-ui': 'make-primary-btn', onClick: this.onMakePrimaryClick, 'data-value': value }, makePrimaryButtonText));
   },
   renderList: function renderList() {
-    var _this = this;
+    var _this3 = this;
 
     var name = this.props.name;
     var _state2 = this.state,
@@ -9690,7 +9705,7 @@ var ComboBox = _react2.default.createClass({
     var values = [primary].concat(alternates);
 
     return values.map(function (v, index) {
-      return _react2.default.createElement(ComboBoxItem, { key: v }, index === 0 ? _this.renderPrimary() : _this.renderAlternate(name, v, index));
+      return _react2.default.createElement(ComboBoxItem, { key: 'combobox-item-' + v }, index === 0 ? _this3.renderPrimary() : _this3.renderAlternate(name, v, index));
     });
   },
   renderTruncatedContent: function renderTruncatedContent() {
@@ -9720,7 +9735,7 @@ var ComboBox = _react2.default.createClass({
 ComboBox.propTypes = {
   name: _react2.default.PropTypes.string.isRequired,
   primary: _react2.default.PropTypes.string.isRequired,
-  onPrimaryUpdated: _react2.default.PropTypes.func,
+  onUpdate: _react2.default.PropTypes.func,
   alternates: _react2.default.PropTypes.array,
   collapsed: _react2.default.PropTypes.bool,
   enableAnimation: _react2.default.PropTypes.bool,
@@ -9775,10 +9790,9 @@ var Showcase = function (_React$Component) {
   }
 
   _createClass(Showcase, [{
-    key: 'onPrimaryUpdated',
-    value: function onPrimaryUpdated(primaryValue) {
-      var output = document.querySelector('span.output');
-      output.innerHTML = 'New primary value: ' + primaryValue;
+    key: 'onUpdate',
+    value: function onUpdate(primary, alternates) {
+      console.log('New primary value: ' + primary);
     }
   }, {
     key: 'render',
@@ -9801,15 +9815,18 @@ var Showcase = function (_React$Component) {
           _react2.default.createElement(
             'h3',
             null,
-            'Basic Usage'
+            'Emails'
           ),
           _react2.default.createElement(_reactComboBox2.default, {
             name: 'email',
             primary: 'john@example.com',
             alternates: ['john.doe@example.com', 'john_doe@example.com'],
-            onPrimaryUpdated: this.onPrimaryUpdated
-          }),
-          _react2.default.createElement('span', { className: 'output' })
+            onUpdate: this.onUpdate,
+            primaryInputClass: 'primary-input',
+            alternateValueClass: 'alternate-value',
+            toggleButtonClass: 'toggle-btn',
+            makePrimaryButtonClass: 'make-primary-btn'
+          })
         )
       );
     }
@@ -24998,6 +25015,33 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
 }.call(this));
+
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ })
